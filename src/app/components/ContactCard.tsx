@@ -6,6 +6,9 @@ export interface ContactCardComponent {
 }
 
 const getInitials = (firstName: string, lastName: string) => {
+    if (firstName === "") {
+        return "";
+    }
     if (lastName === "") {
         return firstName[0].toUpperCase();
     }

@@ -20,7 +20,7 @@ const ContactCard: React.FC<ContactCardComponent> = ({ contact }) => {
             </div>
 
             <div>
-                <h2 className="text-lg font-bold"> { contact.firstName } </h2>
+                <h2 className="text-lg font-bold"> { contact.firstName } { contact.lastName } </h2>
                 <p> { contact.phone } </p>
                 <p> { contact.email } </p>
                 <p> { contact.address } </p>

@@ -23,7 +23,7 @@ export default function AddContactPage() {
             email: email,
             address: address,
         };
-        if (!fname || !phone || !email || !address) {
+        if (!fname || !phone || !email) {
             alert("Please fill in all required fields");
             return;
         }
@@ -99,7 +99,7 @@ export default function AddContactPage() {
                         value={ address }
                         onChange={ (e) => setAddress(e.target.value) }
                         required
-                        className="w-full py-2 borders rounded-full px-4"
+                        className="w-full py-2 border rounded-full px-4"
                     />
                 </div>
                 <button

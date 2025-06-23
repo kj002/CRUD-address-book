@@ -15,7 +15,7 @@ const getInitials = (firstName: string, lastName: string) => {
     if (lastName === "") {
         return firstName[0].toUpperCase();
     }
-    return (firstName[0] + lastName[0]).toUpperCase();
+    return (firstName[0] + lastName[0]).toUpperCase();  
 };
 
 const ContactCard: React.FC<ContactCardComponent> = ({ contact, onDelete, onStarToggle }) => {
@@ -33,8 +33,11 @@ const ContactCard: React.FC<ContactCardComponent> = ({ contact, onDelete, onStar
             >
                 {contact.isFavourite ? <Star color="yellow"/> : <Star/>}
             </button>
-            <div className="rounded-full h-16 w-16 flex items-center justify-center text-xl font=semibold bg-gray-900">
-                {getInitials(contact.firstName, contact.lastName)}
+            <div className="h-16 w-16 flex items-center justify-center text-xl font=semibold bg-gray-900">
+                <img 
+                    src={`https://api.dicebear.com/9.x/notionists-neutral/svg?seed=${getInitials(contact.firstName, contact.lastName)}`}
+                    alt="avatar"
+                    className="rounded-full"/>
             </div>
 
             <div>

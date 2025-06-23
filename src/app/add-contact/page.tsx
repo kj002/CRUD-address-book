@@ -1,10 +1,10 @@
 "use client";
 
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Contact } from "../../model/Contact";
 import { toast } from "sonner";
-
+import { Confetti, ConfettiButton, type ConfettiRef } from "@/components/ConfettiButton";
 
 export default function AddContactPage() {
     const [ fname, setFname ] = useState<string>('');
@@ -12,7 +12,7 @@ export default function AddContactPage() {
     const [ phone, setPhone ] = useState<string>('');
     const [ email, setEmail ] = useState<string>('');
     const [ address, setAddress ] = useState<string>('');
-
+    
     const handleAdd = (e: React.MouseEvent) => {
         e.preventDefault();
         const storedData = localStorage.getItem("contacts");
@@ -105,11 +105,16 @@ export default function AddContactPage() {
                         className="w-full py-1 border rounded-full bg-white px-4"
                     />
                 </div>
-                <button
-                onClick={(e) => handleAdd(e)}
-                className="mt-5 text-center transition-all duration-200 py-3 px-5 rounded-full bg-gradient-to-b from-green-300 to-green-400 hover:from-green-400 hover:to-green-500 text-white font-bold border-2 border-green-600 shadow-[inset_0_-6px_0_rgba(0,0,200,0.3),inset_0_6px_0_rgba(255,255,255,0.4)] hover:shadow-[inset_0_-3px_0_rgba(0,0,300,0.3),inset_0_3px_0_rgba(255,255,255,0.4)] active:shadow-[inset_0_-2px_0_rgba(0,0,0,0.3),inset_0_2px_0_rgba(255,255,255,0.4)] hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
-                    <p className="-mt-5 pb-1">Save Contact</p>
-                </button>
+                <ConfettiButton options={{
+                    particleCount: !fname || !phone || !email ? 0 : 100,
+                }} 
+                >
+                    <div
+                    onClick={(e) => handleAdd(e)}
+                    className="mt-5 text-center transition-all duration-200 py-3 px-5 rounded-full bg-gradient-to-b from-green-300 to-green-400 hover:from-green-400 hover:to-green-500 text-white font-bold border-2 border-green-600 shadow-[inset_0_-6px_0_rgba(0,0,200,0.3),inset_0_6px_0_rgba(255,255,255,0.4)] hover:shadow-[inset_0_-3px_0_rgba(0,0,300,0.3),inset_0_3px_0_rgba(255,255,255,0.4)] active:shadow-[inset_0_-2px_0_rgba(0,0,0,0.3),inset_0_2px_0_rgba(255,255,255,0.4)] hover:scale-[1.01] active:scale-[0.98] cursor-pointer">
+                        <p className="-mt-5 pb-1">Save Contact</p>
+                    </div>
+                </ConfettiButton>
             </div>
         </div>
     )

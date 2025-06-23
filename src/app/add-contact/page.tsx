@@ -32,50 +32,82 @@ export default function AddContactPage() {
     }
 
     return (
-        <div className="justify-center items-center h-screen flex flex-col gap-2">
-            <input 
-            name="firstName"
-            placeholder="First Name" 
-            value={ fname }
-            onChange={ (e) => setFname(e.target.value) }
-            required
-            className="w-full p-2 border rounded"
-            />
-            <input 
-            name="lastName"
-            placeholder="Last Name / Family Name" 
-            value={ lname }
-            onChange={ (e) => setLname(e.target.value) }
-            className="w-full p-2 border rounded"
-            />
-            <input 
-            name="phone"
-            placeholder="Phone Number, e.g. +965 12345678" 
-            value={ phone }
-            onChange={ (e) => setPhone(e.target.value) }
-            required
-            className="w-full p-2 border rounded"
-            />
-            <input 
-            name="email"
-            placeholder="Email Address" 
-            value={ email }
-            onChange={ (e) => setEmail(e.target.value) }
-            required
-            className="w-full p-2 border rounded"
-            />
-            <input 
-            name="address"
-            placeholder="Address, e.g. Subang Jaya, Selangor, Malaysia" 
-            value={ address }
-            onChange={ (e) => setAddress(e.target.value) }
-            required
-            className="w-full p-2 border rounded"
-            />
-            <button
-            onClick={(e) => handleAdd(e)}>
-            add
-            </button>
+        <div className="flex flex-col justify-center items-center h-screen">
+            <p className="m-4 text-2xl text-bold sticky top-0 bg-black z-10 py-4 w-full text-center">
+                Add a New Contact
+            </p>
+            <div className="p-10 border rounded-md shadow flex flex-col justify-center items-center gap-4 w-full max-w-md">
+                <div className="w-full">
+                    <label htmlFor="firstName" className="block mb-1 font-medium">
+                        First Name <span className="text-red-400">*</span>
+                    </label>
+                    <input 
+                        name="firstName"
+                        placeholder="Type First Name" 
+                        value={ fname }
+                        onChange={ (e) => setFname(e.target.value) }
+                        required
+                        className="w-full py-2 px-4 border rounded-full"
+                    />
+                </div>
+                <div className="w-full">
+                    <label htmlFor="lastName" className="block mb-1 font-medium">
+                        Last Name
+                    </label>
+                    <input 
+                        name="lastName"
+                        placeholder="Type Last Name / Family Name" 
+                        value={ lname }
+                        onChange={ (e) => setLname(e.target.value) }
+                        className="w-full py-2 px-4 border rounded-full"
+                    />
+                </div>
+                <div className="w-full">
+                    <label htmlFor="phone" className="block mb-1 font-medium">
+                        Phone Number <span className="text-red-400">*</span>
+                    </label>
+                    <input 
+                        name="phone"
+                        placeholder="e.g. +965 12345678" 
+                        value={ phone }
+                        onChange={ (e) => setPhone(e.target.value) }
+                        required
+                        className="w-full py-2 px-4 border rounded-full"
+                    />
+                </div>
+
+                <div className="w-full">
+                    <label htmlFor="email" className="block mb-1 font-medium">
+                        Email Address <span className="text-red-400">*</span>
+                    </label>
+                    <input 
+                        name="email"
+                        placeholder="e.g. abc123@email.com" 
+                        value={ email }
+                        onChange={ (e) => setEmail(e.target.value) }
+                        required
+                        className="w-full py-2 px-4 border rounded-full"
+                    />
+                </div>
+                <div className="w-full">
+                    <label htmlFor="address" className="block mb-1 font-medium">
+                        Address
+                    </label>
+                    <input 
+                        name="address"
+                        placeholder="e.g. Subang Jaya, Selangor, Malaysia" 
+                        value={ address }
+                        onChange={ (e) => setAddress(e.target.value) }
+                        required
+                        className="w-full py-2 borders rounded-full px-4"
+                    />
+                </div>
+                <button
+                onClick={(e) => handleAdd(e)}
+                className="mt-6 rounded-full py-2 px-4 bg-gray-800 hover:bg-green-800 cursor-pointer">
+                    Save Contact
+                </button>
+            </div>
         </div>
     )
 

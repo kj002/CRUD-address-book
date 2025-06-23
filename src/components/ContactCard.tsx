@@ -1,5 +1,7 @@
 import React from "react";
 import { Contact } from "@/model/Contact";
+import { deleteContact } from "@/lib/utils";
+import { Icon, Trash2 } from "lucide-react";
 
 export interface ContactCardComponent {
     contact: Contact;
@@ -17,7 +19,13 @@ const getInitials = (firstName: string, lastName: string) => {
 
 const ContactCard: React.FC<ContactCardComponent> = ({ contact }) => {
     return (
-        <div className="p-4 border rounded-md shadow flex items items-center space-x-4">
+        <div className="relative p-4 border rounded-md shadow flex items items-center space-x-4">
+            <button
+            onClick={() => deleteContact(contact.id)}
+            className="absolute top-3 -right-1">
+                <Trash2 strokeWidth={1.25}/>
+            </button>
+
             <div className="rounded-full h-16 w-16 flex items-center justify-center text-xl font=semibold bg-gray-900">
                 {getInitials(contact.firstName, contact.lastName)}
             </div>

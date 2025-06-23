@@ -25,7 +25,7 @@ export default function ViewContactsPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-4xl">
                     {contacts.map((contact: Contact) => (
                         contact.firstName === "" 
-                        ? <></> 
+                        ? <div className="hidden" key={contact.id}/>
                         : <ContactCard key={contact.id} contact={contact}/>
                     ))}
                 </div>

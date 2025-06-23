@@ -36,9 +36,9 @@ export default function ViewContactsPage() {
 
     return (
         <div className="flex flex-col items-center p-6 gap-6">
-            <p className="text-2xl text-bold sticky top-0 bg-black z-10 py-4 w-full text-center">
+            <h2 className="text-4xl font-bold sticky top-0 z-10 py-4 w-full text-center">
                 Saved Contacts
-            </p>
+            </h2>
             <div className="flex flex-col w-full max-w-4xl gap-6">
                 <div className="flex gap-2">
                     <input 

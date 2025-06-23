@@ -36,7 +36,7 @@ export default function ViewContactsPage() {
 
     return (
         <div className="flex flex-col items-center p-6 gap-6">
-            <h2 className="text-4xl font-bold sticky top-0 z-10 py-4 w-full text-center">
+            <h2 className="-mt-2 text-4xl font-bold w-full text-center">
                 Saved Contacts
             </h2>
             <div className="flex flex-col w-full max-w-4xl gap-6">
@@ -56,8 +56,8 @@ export default function ViewContactsPage() {
                 </div>
 
                 { contacts.length === 0 ? (
-                <div className="mt-10 text-gray-700 text-lg italic">
-                    No contacts saved.
+                <div className="mt-10 text-3xl italic text-center">
+                    No contacts saved...
                 </div>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">

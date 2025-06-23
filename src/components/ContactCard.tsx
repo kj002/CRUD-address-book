@@ -20,7 +20,7 @@ const getInitials = (firstName: string, lastName: string) => {
 
 const ContactCard: React.FC<ContactCardComponent> = ({ contact, onDelete, onStarToggle }) => {
     return (
-        <div className="relative py-4 px-6 border rounded-xl shadow-lg flex items items-center space-x-4 bg-orange-100">
+        <div className="relative py-1 pb-6 px-5 border rounded-xl shadow-lg flex items-center space-x-4 bg-orange-100">
             <button
                 onClick={() => onDelete()}
                 className="absolute top-3 -right-1 cursor-pointer"
@@ -30,16 +30,15 @@ const ContactCard: React.FC<ContactCardComponent> = ({ contact, onDelete, onStar
             <button
                 onClick={() => onStarToggle()}
                 className="absolute bottom-3 -right-1 cursor pointer"
-            >
+>
                 {contact.isFavourite ? <Star color="yellow"/> : <Star/>}
             </button>
-            <div className="h-16 w-16 bg-transparent flex items-center justify-center text-xl font=semibold">
-                <img 
-                    src={`https://api.dicebear.com/9.x/pixel-art-neutral/svg?seed=${getInitials(contact.firstName, contact.lastName)}`}
-                    alt="avatar"
-                    className="rounded-full border-orange-200 border-3"/>
-            </div>
-            <div className="pb-3">
+            <img 
+                src={`https://api.dicebear.com/9.x/pixel-art-neutral/svg?seed=${getInitials(contact.firstName, contact.lastName)}`}
+                alt="avatar"
+                className="mt-5 rounded-full border-orange-200 border-3 h-16 w-16 bg-transparent"
+            />
+            <div className="pb-3 text-start">
                 <h2 className="text-3xl font-bold"> { contact.firstName } { contact.lastName } </h2>
                 <p> { contact.phone } </p>
                 <p className="-mt-4"> { contact.email } </p>

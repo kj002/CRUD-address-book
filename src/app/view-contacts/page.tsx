@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Contact } from '../../model/Contact';
 import { searchContact } from '../../lib/utils';
 import { FilterIcon, SortAscIcon, SortDescIcon } from "lucide-react";
+import { deleteAndRefresh, starAndRefresh } from "@/lib/utils";
 
 export default function ViewContactsPage() {
     const [allContacts, setAllContacts] = useState<Contact[]>([]);
@@ -50,7 +51,7 @@ export default function ViewContactsPage() {
                     <button
                     onClick={() => setSortAsc(!sortAsc)}
                     className="">
-                        {sortAsc ? <SortDescIcon strokeWidth={1.25}/>: <SortAscIcon strokeWidth={1.25}/>}
+                        {sortAsc ? <SortDescIcon strokeWidth={1.25}/> : <SortAscIcon strokeWidth={1.25}/>}
                     </button>
                 </div>
 
@@ -63,7 +64,12 @@ export default function ViewContactsPage() {
                         {contacts.map((contact: Contact) => (
                             contact.firstName === "" 
                             ? <div className="hidden" key={contact.id}/>
-                            : <ContactCard key={contact.id} contact={contact}/>
+                            : <ContactCard 
+                                key={contact.id} 
+                                contact={contact}
+                                onDelete={() => deleteAndRefresh(contact.id, setAllContacts)}
+                                onStarToggle={() => starAndRefresh(contact.id, setAllContacts)}
+                            />
                         ))}
                     </div>
                 )} 

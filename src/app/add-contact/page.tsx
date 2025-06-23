@@ -3,6 +3,8 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { Contact } from "../../model/Contact";
+import { toast } from "sonner";
+
 
 export default function AddContactPage() {
     const [ fname, setFname ] = useState<string>('');
@@ -29,6 +31,7 @@ export default function AddContactPage() {
         }
         contacts.push(newContact);
         localStorage.setItem("contacts", JSON.stringify(contacts));
+        toast.success("Contact added successfully!");
     }
 
     return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { Contact } from "@/model/Contact";
-import { Icon, Star, Trash2 } from "lucide-react";
+import { Star, Trash2 } from "lucide-react";
 
 export interface ContactCardComponent {
     contact: Contact;
@@ -20,18 +20,18 @@ const getInitials = (firstName: string, lastName: string) => {
 
 const ContactCard: React.FC<ContactCardComponent> = ({ contact, onDelete, onStarToggle }) => {
     return (
-        <div className="relative py-1 pb-6 px-5 border rounded-xl shadow-lg flex items-center space-x-4 bg-orange-100">
+        <div className="relative py-1 pb-6 px-5 border rounded-xl shadow-lg flex items-center space-x-4 bg-orange-100 transition-all duration-500 hover:scale-105">
             <button
                 onClick={() => onDelete()}
                 className="absolute top-3 -right-1 cursor-pointer"
             >
-                <Trash2 strokeWidth={1.25}/>
+                <Trash2 strokeWidth={1.75} color="salmon"/>
             </button>
             <button
                 onClick={() => onStarToggle()}
                 className="absolute bottom-3 -right-1 cursor pointer"
 >
-                {contact.isFavourite ? <Star color="yellow"/> : <Star/>}
+                {contact.isFavourite ? <Star color="gold"/> : <Star/>}
             </button>
             <img 
                 src={`https://api.dicebear.com/9.x/pixel-art-neutral/svg?seed=${getInitials(contact.firstName, contact.lastName)}`}

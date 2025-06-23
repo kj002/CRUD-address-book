@@ -17,7 +17,7 @@ export default function Home() {
     
   return (
     <div className="min-h-screen flex justify-between space-x-20 px-16 pt-12 relative overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none z-10">
         {/* Large bubbles */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-orange-200/20 rounded-full animate-bubble-float-1"></div>
         <div className="absolute top-40 right-16 w-24 h-24 bg-amber-200/15 rounded-full animate-bubble-float-2"></div>
@@ -47,8 +47,8 @@ export default function Home() {
         <div className="absolute top-56 left-72 w-5 h-5 bg-red-500/40 rounded-full animate-bubble-float-20"></div>
       </div>
       
-      <div>
-        <div className="flex flex-col gap-14 items-center w-full max-w-md">
+      <div className="z-50">
+        <div className="flex flex-col gap-14 items-center w-full min-w-xl max-w-3xl">
           <div className="flex flex-col items-center text-center">
             <h2 className="text-4xl font-bold">
               Welcome to 
@@ -78,27 +78,27 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mt-10 text-center">
-        <h3 className="text-2xl font-semibold mb-8">Favourite Contacts</h3>
-        { allContacts.length === 0 ? (
-                <div className="mt-10 text-gray-700 text-lg italic">
-                    No contacts saved.
+      <div className="self-start w-full min-w-xl max-w-3xl mt-10 text-center z=50">
+        <h3 className="text-3xl font-semibold mb-8">Favourite Contacts</h3>
+        {allContacts.length === 0 || allContacts.filter(contact => contact.isFavourite).length === 0 ? (
+                <div className="mt-10 text-2xl italic">
+                    No favourite contacts yet. Add some to see them here!
                 </div>
                 ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-                    {allContacts.map((contact: Contact) => (
-                        contact.isFavourite
-                        ? <div className="hidden" key={contact.id}/>
-                        : <ContactCard 
-                            key={contact.id} 
-                            contact={contact}
-                            onDelete={() => deleteAndRefresh(contact.id, setAllContacts)}
-                            onStarToggle={() => starAndRefresh(contact.id, setAllContacts)}
-                        />
-                    ))}
-                </div>
-            )}
+                <div className="grid grid-cols-1 gap-4 w-full px-4">
+                  {allContacts.map((contact: Contact) => (
+                      contact.isFavourite
+                      ? <ContactCard 
+                          key={contact.id} 
+                          contact={contact}
+                          onDelete={() => deleteAndRefresh(contact.id, setAllContacts)}
+                          onStarToggle={() => starAndRefresh(contact.id, setAllContacts)}
+                      />
+                      : <div className="hidden" key={contact.id}/>
+                  ))}
+              </div>
+          )}
+        </div>
       </div>
-    </div>
-  );
+    );
 }

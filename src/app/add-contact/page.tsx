@@ -33,9 +33,9 @@ export default function AddContactPage() {
 
     return (
         <div className="flex flex-col justify-center items-center h-screen">
-            <p className="m-4 text-2xl text-bold sticky top-0 bg-black z-10 py-4 w-full text-center">
+            <h2 className="m-4 text-2xl text-bold top-0 bg-black z-10 py-4 w-full text-center">
                 Add a New Contact
-            </p>
+            </h2>
             <div className="p-10 border rounded-md shadow flex flex-col justify-center items-center gap-4 w-full max-w-md">
                 <div className="w-full">
                     <label htmlFor="firstName" className="block mb-1 font-medium">

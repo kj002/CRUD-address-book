@@ -31,6 +31,10 @@ h2 {
   font-family: var(--font-body);
 }
 
+h3 {
+  color: #da2f68;
+}
+
 body {
   background: var(--background);
   color: var(--body);

@@ -5,9 +5,7 @@
   --foreground: #ffb366;
   --body: #ff8000;
   --heading: #990000;
-  --sub-heading: #994d00;
-  --button-text: #804000;
-  --button-hovered: #f08000; 
+  --subheading: #994d00;
 
 }
 
@@ -27,8 +25,12 @@ h1 {
 }
 
 h2 {
-  color: var(--sub-heading);
+  color: var(--subheading);
   font-family: var(--font-body);
+}
+
+.subheading {
+  color: var(--subheading);
 }
 
 h3 {
@@ -40,18 +42,6 @@ body {
   color: var(--body);
   font-family: var(--font-body), sans-serif;
   font-size: 26px;
-}
-
-.button-text {
-  color: var(--button-text);
-}
-
-.orange-button {
-  background-color: var(--foreground);
-}
-
-.orange-button:hover {
-  background-color: var(--button-hovered);
 }
 
 @keyframes bubble-float-1 {

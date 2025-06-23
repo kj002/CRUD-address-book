@@ -1,10 +1,11 @@
 import { Contact } from "@/model/Contact";
 
-export const deleteContact = (id: string) => {
+const deleteContact = (id: string) => {
     const storedData = localStorage.getItem("contacts");
     const contacts: Contact[] = storedData ? JSON.parse( storedData ) : [];
     const filtered = contacts.filter((contact) => contact.id !== id);
     localStorage.setItem("contacts", JSON.stringify(filtered));
+    return filtered
 } 
 
 export const searchContact = (search: string) => {
@@ -15,3 +16,30 @@ export const searchContact = (search: string) => {
     return selected;
 }
 
+export const starContact = (id: string) => {
+    const storedData = localStorage.getItem("contacts");
+    const contacts: Contact[] = storedData ? JSON.parse( storedData ) : [];
+    const favouriteContact = contacts.map((contact) => 
+        contact.id === id
+            ? {...contact, isFavourite: !contact.isFavourite}
+            : contact
+    );
+    localStorage.setItem("contacts", JSON.stringify(favouriteContact));
+    return favouriteContact;
+}
+
+export const deleteAndRefresh = (
+  id: string,
+  setStateFn: React.Dispatch<React.SetStateAction<Contact[]>>
+) => {
+  const updated = deleteContact(id);
+  setStateFn(updated);
+};
+
+export const starAndRefresh = (
+  id: string,
+  setStateFn: React.Dispatch<React.SetStateAction<Contact[]>>
+) => {
+  const updated = starContact(id);
+  setStateFn(updated);
+};

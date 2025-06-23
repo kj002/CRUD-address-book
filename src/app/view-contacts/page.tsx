@@ -1,5 +1,5 @@
 "use client";
-import ContactCard from "../components/ContactCard";
+import ContactCard from "@/components/ContactCard";
 import { useEffect, useState } from "react";
 import { Contact } from '../model/Contact';
 
@@ -13,6 +13,7 @@ export default function ViewContactsPage() {
 
     return (
         <div className="flex flex-col items-center p-6 gap-6">
+            
             <p className="text-2xl text-bold sticky top-0 bg-black z-10 py-4 w-full text-center">
                 Saved Contacts
             </p>
@@ -22,8 +23,10 @@ export default function ViewContactsPage() {
                 </div>
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-4xl">
-                    {contacts.map((contact) => (
-                        <ContactCard key={contact.id} contact={contact}/>
+                    {contacts.map((contact: Contact) => (
+                        contact.firstName === "" 
+                        ? <></> 
+                        : <ContactCard key={contact.id} contact={contact}/>
                     ))}
                 </div>
             )

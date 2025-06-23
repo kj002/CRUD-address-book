@@ -37,7 +37,7 @@ const ContactCard: React.FC<ContactCardComponent> = ({ contact, onDelete, onStar
                 <img 
                     src={`https://api.dicebear.com/9.x/pixel-art-neutral/svg?seed=${getInitials(contact.firstName, contact.lastName)}`}
                     alt="avatar"
-                    className="rounded-full border-orange-200 border-3 font"/>
+                    className="rounded-full border-orange-200 border-3"/>
             </div>
             <div className="pb-3">
                 <h2 className="text-3xl font-bold"> { contact.firstName } { contact.lastName } </h2>

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { Contact } from "../model/Contact";
+import { Contact } from "../../model/Contact";
 
 export default function AddContactPage() {
     const [ fname, setFname ] = useState<string>('');

@@ -1,7 +1,7 @@
 "use client";
 import ContactCard from "@/components/ContactCard";
 import { useEffect, useState } from "react";
-import { Contact } from '../model/Contact';
+import { Contact } from '../../model/Contact';
 
 export default function ViewContactsPage() { 
     const [ contacts, setContacts ] = useState([]);
@@ -13,7 +13,7 @@ export default function ViewContactsPage() {
 
     return (
         <div className="flex flex-col items-center p-6 gap-6">
-            
+
             <p className="text-2xl text-bold sticky top-0 bg-black z-10 py-4 w-full text-center">
                 Saved Contacts
             </p>
